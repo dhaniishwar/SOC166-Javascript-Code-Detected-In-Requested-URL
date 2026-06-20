@@ -147,8 +147,64 @@ https://172.16.17.17/search/?q=<$script>javascript:$alert(1)<$/script>
 
 <img width="599" height="431" alt="18" src="https://github.com/user-attachments/assets/66ae3660-8694-478b-9c13-b7270f810791" />
 
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; let's check the terminal history of the hostname WebServer1002, to make sure no command was executed.
+<br>
+<br>
 
+<img width="754" height="503" alt="19" src="https://github.com/user-attachments/assets/7fd07be5-d08d-40a3-bb59-6536e5861dbb" />
 
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; We can see only normal deployment rountine. Nothing here suggests an attacker got command execution.
+<br>
+<br>
 
+<img width="588" height="243" alt="20" src="https://github.com/user-attachments/assets/e1060f65-d4e5-45d5-95ec-91e6459ae1f6" />
 
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; The attack was unsuccessful because every XSS payload returned an HTTP 302 with a response size of 0.
+<br>
+<br>
+
+---
+***Tier 2 Escalation:***
+
+<img width="599" height="427" alt="22" src="https://github.com/user-attachments/assets/09955043-d1d0-4bc8-9ccc-1a620cbc18d2" />
+
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; The traffic originated from the internet and the attack failed. Per the escalation rules, that means no Tier 2 escalation is required here.
+<br>
+<br>
+
+---
+***Documertation:***
+
+<img width="594" height="425" alt="23" src="https://github.com/user-attachments/assets/8eb905df-8ceb-46de-bb0c-c804ad177632" />
+
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; The reason you document the URL, domain and IP separately is that the URL could change while the IP and domain stays the same. These three gives future analysts more options to detect related activity. The Analyst Note is your chance to tell the full story of what happened in plain language.
+<br>
+<br>
+
+<img width="581" height="316" alt="24" src="https://github.com/user-attachments/assets/76762360-c08b-4745-89c5-d371b83417d2" />
+
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; The attack was real, the detection was accurate, and the traffic was genuinely malicious — it just didn't succeed. Closed as True Positive, no Tier 2 escalation needed since the payloads never executed and there's no evidence of compromise.
+<br>
+<br>
+
+---
+<h3 align =center> Summary </h3>
+
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; An external attacker from 112.85.42.13 (CHINA UNICOM, China) targeted internal web server WebServer1002 (172.16.17.17) on February 26, 2022 with a series of XSS payloads injected into the search parameter. The attacker started with quiet recon before escalating through multiple script injection attempts, but every malicious request returned a 302 redirect with zero response body. The attack failed, the case closed as a True Positive, and no escalation was needed.
+<br>
+<br>
 
