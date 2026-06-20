@@ -39,6 +39,20 @@
 
 <br>
 <br>
+&nbsp;&nbsp;&nbsp;&nbsp; The rule triggered because JavaScript code was detected inside the requested URL. Specifically, look at the URL:
+<br>
+<br>
+
+```bash
+https://172.16.17.17/search/?q=<$script>javascript:$alert(1)<$/script>
+```
+
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; What we're seeing here is a classic Cross-Site Scripting (XSS) payload. The attacker use "alert(1)" comment is use to test whether a site is vulnerable or not.
+<br>
+<br>
+
 
 
 
